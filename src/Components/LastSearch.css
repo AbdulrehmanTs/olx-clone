@@ -1,0 +1,27 @@
+.lastSearch{
+    margin: 0 auto;
+    width: 1200px;
+    background: #ebeeef;
+    border-radius: 7px;
+    padding: 10px;
+    border-radius: 5px;
+}
+.lastSearch h2{
+    font-size: 30px;
+    color: darkslategray;
+    margin-bottom: 20px;
+}
+.lastSearch> p{
+    color: darkslategray;
+    float: right;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-top: -60px;
+    cursor: pointer;
+}
+
+.cards{
+    display: flex;
+    justify-content: space-around;
+}

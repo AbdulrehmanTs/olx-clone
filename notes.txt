@@ -1,0 +1,6 @@
+1. search feature
+2. add geolocation
+3. search history
+4. login details
+5. hide and load more button fully working
+6. all categories button working

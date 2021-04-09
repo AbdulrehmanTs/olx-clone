@@ -1,0 +1,11 @@
+.ad-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    height: 200px;
+}
+
+.ad-image{
+    width: 70vw;
+}
