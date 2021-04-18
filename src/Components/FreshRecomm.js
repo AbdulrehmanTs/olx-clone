@@ -10,8 +10,7 @@ import Image2 from "../assets/Images/simage10.jpeg"
 import Image3 from "../assets/Images/simage12.jpeg"
 import Image4 from "../assets/Images/simage13.jpeg"
 import GoogleAd from './GoogleAd'
-
-import {set_data} from '../Store/Actions'
+import { set_data } from "../Store/Actions/index"
 
 class FreshRecomm extends Component {
     render() {
@@ -63,9 +62,11 @@ class FreshRecomm extends Component {
                 </div>
 
                 <div className='btn-div'>
-                    <button onClick={() => this.props.set_data("clicked load more button")} className='load-btn'>Load more</button>
+                    <h1>{this.props.user}</h1>
+                    {/* <h1>{this.props.name}</h1> */}
+                    <h1>{this.props.appName}</h1>
+                    <button onClick={()=> this.props.set_data()} className='load-btn'>Load more</button>
                 </div>
-                <button onClick={this.props.set_data("Hello from set data button")}>set Data</button>
 
                 <GoogleAd />
 
@@ -94,11 +95,15 @@ class FreshRecomm extends Component {
 
 const mapStateToProps = (state) => ({
     boo: "foo",
-    userName: state.auth.userName,
-    id: state.auth.id
+    user: state.auth[0].user,
+    id: state.auth[0].id,
+    email: state.auth[0].email,
+    name: state.root[0].name,
+    root: state.root,
+    appName: state.app.appName
 })
 const mapDispatchToProp = (dispatch) => ({
-     set_data: ()=> dispatch(set_data)
+    set_data: (data)=> dispatch(set_data(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProp)(FreshRecomm)

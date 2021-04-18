@@ -1,15 +1,16 @@
 const INITIAL_STATE = {
-    AppName: "Olx Clone",
+    appName: "Olx Clone",
 }
 
-export default (state = INITIAL_STATE, action ) => {
-    console.log("AppReducer==> ", action)
-    switch (action.type){
-        case "SetData":
+export default (state = INITIAL_STATE, action) => {
+    console.log("appReducers==>",action, state)
+    switch (action.type) {
+        case "Set_Data":
             return {
-                ...state, 
-                AppName: action.data
+                ...state,
+                appName: action.payload,
             }
+        default:
+            return state;
     }
-    return state;
 }

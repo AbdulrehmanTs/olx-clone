@@ -25,17 +25,17 @@ export default class Header extends React.Component {
                     
                     <div className='search-location'>
                         <SearchIcon className='search-location-icon' />
-                        <input type='text' placeholder="Pakistan"/>
+                        <input className="input" type='text' placeholder="Pakistan"/>
                     </div>
 
 
                     <div className='search-bar'>
-                        <input type='text' placeholder='Find Cars, Mobile Phones and more...' />
+                        <input className="input" type='text' placeholder='Find Cars, Mobile Phones and more...' />
                         <SearchIcon fontSize='large' className='search-bar-icon' />
                     </div>
 
-
                     { this.state.user ? <UserInfo/> :
+
                     <div className="login-btn-container">
                         <button onClick={()=> this.setState({user: true})} className='loginBtn'>Login</button>
                     </div>}
