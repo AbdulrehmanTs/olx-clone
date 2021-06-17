@@ -3,7 +3,9 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 
 export default class ItemCard extends React.Component {
+    
     render() {
+        console.log("Item card props>>", this.props)
         return (
             <div style={styles.cardContainer}>
                 <div style={styles.Header}>

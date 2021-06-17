@@ -1,0 +1,35 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.app_container{
+  max-width:  1440px;
+  margin: 0% auto;
+}
+
+.backToTopBtn {
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none; 
+    background-color: rgb(238, 237, 237); 
+    color: black; 
+    cursor: pointer; 
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: .4s ease;
+    padding: 5px 10px;
+  }
+  .backToTopBtn:hover {
+    background-color: rgb(131, 131, 131); /* Add a dark-grey background on hover */
+  }

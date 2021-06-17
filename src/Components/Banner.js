@@ -8,10 +8,8 @@ export default class Banner extends Component {
     render() {
         return (
             <>
-            <div className='Banner-container'>
                 <div className='banner-images'>
                 </div>
-            </div>
             <GoogleAd/>
             </>
         )

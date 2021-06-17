@@ -13,25 +13,51 @@ import GoogleAd from './GoogleAd'
 import { set_data } from "../Store/Actions/index"
 
 class FreshRecomm extends Component {
+    constructor(props){
+        super(props)
+        
+    }
     render() {
-        console.log("redux props", this.props)
+        console.log("redux props>>>", this.props)
         const items = [
             {
-                description: "Hello world",
+                id: 1,
+                description: "Perfume",
                 cost: 9000,
                 date: "3 days ago",
+                image: Image3
             },
+            {
+                id: 2,
+                description: "Perfume",
+                cost: 8000,
+                date: "3 days ago",
+                image: Image3
+            },
+            {
+                id: 3,
+                description: "Perfume",
+                cost: 300,
+                date: "3 days ago",
+                image: Image3
+            }
         ]
+
+
+    for(var i = 0; i<items.length; i++){
+        var id = items[i].id
+    }
+
 
         return (
             <div>
                 <br />
                 <h1>Fresh Recommendations</h1>
                 <div className='fresh-items'>
-                    {items.map((item, index)=> {
-                        return <ItemCard key={index} description={items.description}  />
+                    {items.map((item)=> {
+                        return <ItemCard key={item.id} cost={item.cost}/>
                     })}
-                    <ItemCard
+                    {/* <ItemCard
                         cost="9000"
                         type="New"
                         image={Image1}
@@ -58,13 +84,10 @@ class FreshRecomm extends Component {
                         description="Oppo f3 One hand used contact fast"
                         date="Today"
                         type="New"
-                    />
+                    /> */}
                 </div>
 
                 <div className='btn-div'>
-                    <h1>{this.props.user}</h1>
-                    {/* <h1>{this.props.name}</h1> */}
-                    <h1>{this.props.appName}</h1>
                     <button onClick={()=> this.props.set_data()} className='load-btn'>Load more</button>
                 </div>
 
@@ -94,16 +117,15 @@ class FreshRecomm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    boo: "foo",
-    user: state.auth[0].user,
-    id: state.auth[0].id,
-    email: state.auth[0].email,
-    name: state.root[0].name,
-    root: state.root,
-    appName: state.app.appName
+    // user: state.auth.id1.user,
+    // id: state.auth.id1,
+    // email: state.auth.id1.email,
+    // name: state.root.user1.name,
+    // appName: state.app.appName
 })
 const mapDispatchToProp = (dispatch) => ({
-    set_data: (data)=> dispatch(set_data(data))
+    // boo: "khan",
+    // set_data: (data)=> dispatch(set_data(data))
 })
 
 export default connect(mapStateToProps, mapDispatchToProp)(FreshRecomm)

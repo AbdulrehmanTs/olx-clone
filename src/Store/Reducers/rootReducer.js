@@ -14,8 +14,11 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
     console.log("state from root reducer", state)
-    if ({ type: 'something' }) {
-        console.log("function chal gya")
+    switch (action.type) {
+        case "something":
+            console.log("rootReducer","function chal gya")
+            break;
+        default:
+            return state;
     }
-    return state;
 }

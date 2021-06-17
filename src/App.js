@@ -1,35 +1,36 @@
 import React from 'react';
-import './App.css';
+import './StyleSheets/App.css';
 import AppRouter from './Config/Router';
 import { connect } from 'react-redux'
 import ArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 
 class App extends React.Component {
-
-
+  constructor(){
+    super();
+    this.state = {
+      display : "none"
+    }
+  }
   render() {
-
-    // const x = document.getElementsByClassName(".backToTopBtn")
-
-    // window.addEventListener("scroll", () => {
-    //   if (window.pageYOffset > 100) {
-    //     x.classList.add('scrolled');
-    //   }
-    //   else {
-    //     x.classList.remove('scrolled');
-    //   }
-    // })
-
     const scroll = () => {
       window[`scrollTo`]({ top: 0, behavior: `smooth` })
     }
 
+    window.onscroll = () =>{
+      if (window.scrollY > 300 ){
+      this.setState({opacity: 100})
+      } else {
+      this.setState({opacity: 0})
+      }
+    }
 
-    // console.log("redux===>", this.props)
+    console.log("redux===>", this.props)
+    console.log("sreen width: ", window.screen.availWidth)
     return (
-      <div>
-        <button className="backToTopBtn" onClick={() => scroll()}>
-          <ArrowUpIcon fontSize="large" />
+      <div className="app_container">
+        <button style={{opacity: this.state.opacity}} className="backToTopBtn" onClick={() => scroll()}>
+         <ArrowUpIcon style={{marginRight: "4px"}} fontSize="large" /> 
+          <p>Back to top</p>
         </button>
 
         <AppRouter />

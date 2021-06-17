@@ -1,5 +1,25 @@
 const INITIAL_STATE = {
-    appName: "Olx Clone",
+    items : [
+        {
+            id: 1,
+            description: "Perfume",
+            cost: 9000,
+            date: "3 days ago"
+        },
+        {
+            id: 2,
+            description: "Perfume",
+            cost: 8000,
+            date: "3 days ago"
+        },
+        {
+            id: 3,
+            description: "Perfume",
+            cost: 300,
+            date: "3 days ago"
+        },
+
+    ]
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -8,7 +28,7 @@ export default (state = INITIAL_STATE, action) => {
         case "Set_Data":
             return {
                 ...state,
-                appName: action.payload,
+                items: action.payload,
             }
         default:
             return state;
