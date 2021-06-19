@@ -3,12 +3,19 @@ import { Link } from 'react-router-dom'
 import './Header.css'
 import SearchIcon from '@material-ui/icons/Search';
 import UserInfo from './UserInfo'
+import {Modal, Button} from 'react-bootstrap'
+import LoginModal from './LoginModal';
 
 export default class Header extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.state = {
-            user : false
+            user: false,
+            show: false,
+            handleShow: true,
+            handleClose: false,
+            backdrop: "static",
+            keyboard: false
         }
     }
 
@@ -16,30 +23,42 @@ export default class Header extends React.Component {
         const x = document.querySelector('.menu_expend')
         x.classList.toggle('menu_toggle')
     }
+    handleUser() {
+        this.setState({
+            // user: true,
+            show: true,
+            handleClose: false,
+        })
+    }
 
+    handleClose(){
+        this.setState({
+            handleClose : true,
+            show: false
+        })
+    }
     render() {
         return (
             <div className='header-container'>
                 <div className='header'>
                     <Link className='logo' to={"/"}><svg width="48px" height="48px" fill='darkslategray' viewBox="0 0 1024 1024" data-aut-id="icon" className="" fillRule="evenodd"><path className="rui-77aaa" d="M661.333 256v512h-128v-512h128zM277.333 298.667c117.824 0 213.333 95.531 213.333 213.333s-95.509 213.333-213.333 213.333c-117.824 0-213.333-95.531-213.333-213.333s95.509-213.333 213.333-213.333zM794.496 384l37.504 37.504 37.504-37.504h90.496v90.496l-37.504 37.504 37.504 37.504v90.496h-90.496l-37.504-37.504-37.504 37.504h-90.496v-90.496l37.504-37.504-37.504-37.504v-90.496h90.496zM277.333 426.667c-47.061 0-85.333 38.293-85.333 85.333s38.272 85.333 85.333 85.333c47.061 0 85.333-38.293 85.333-85.333s-38.272-85.333-85.333-85.333z"></path></svg></Link>
-                    
+
                     <div className='search-location'>
                         <SearchIcon className='search-location-icon' />
-                        <input className="input" type='text' placeholder="Pakistan"/>
+                        <input className="input" type='text' placeholder="Pakistan" />
                     </div>
-
 
                     <div className='search-bar'>
                         <input className="input" type='text' placeholder='Find Cars, Mobile Phones and more...' />
                         <SearchIcon fontSize='large' className='search-bar-icon' />
                     </div>
 
-                    { this.state.user ? <UserInfo/> :
+                    {this.state.user ? <UserInfo /> :
 
-                    <div className="login-btn-container">
-                        <button onClick={()=> this.setState({user: true})} className='loginBtn'>Login</button>
-                    </div>}
-                    
+                        <div className="login-btn-container">
+                            <button onClick={() => this.handleUser()} className='loginBtn'>Login</button>
+                        </div>}
+
 
 
                     <div className="sell-btn-container" >
@@ -49,7 +68,7 @@ export default class Header extends React.Component {
 
                 <div className='menu'>
                     <ul>
-                        <li  className='nav-link' onClick={this.menu_toggles}>ALL CATEGORIES<i className="fas fa-chevron-down"></i></li>
+                        <li className='nav-link' onClick={this.menu_toggles}>ALL CATEGORIES<i className="fas fa-chevron-down"></i></li>
                         <div className="menu_expend">
                             <div>
                                 <ul>
@@ -221,7 +240,7 @@ export default class Header extends React.Component {
                             </div>
 
                         </div>
-                        
+
                         <Link className='nav-link' to='/mobilephones'>Mobile Phones</Link>
                         <Link className='nav-link' to='/cars'>Cars</Link>
                         <Link className='nav-link' to='/motorcycles'>Motercycles</Link>
@@ -231,6 +250,24 @@ export default class Header extends React.Component {
                         <Link className='nav-link' to='/landsandplots'>Land and Plots</Link>
                     </ul>
                 </div>
+
+
+                        {/* Login modal popup */}
+                <Modal show={this.state.show} onHide={()=>{this.handleClose()}}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Modal heading</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="secondary" onClick={()=>{this.handleClose()}}>
+                                Close
+                            </Button>
+                            <Button variant="primary" onClick={()=>{this.handleClose()}}>
+                                Save Changes
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                    {/* Login modal end */}
             </div>
         )
     }

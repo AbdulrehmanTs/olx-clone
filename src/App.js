@@ -3,6 +3,7 @@ import './StyleSheets/App.css';
 import AppRouter from './Config/Router';
 import { connect } from 'react-redux'
 import ArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 class App extends React.Component {
   constructor(){
