@@ -6,6 +6,7 @@
     background: whitesmoke;
     justify-content: space-evenly;
     align-items: center;
+    /* position: fixed; */
 }
 .logo{
     margin: 15px;
@@ -14,28 +15,36 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 22%;
 }
 .search-location-icon{
     transform: translateX(35px);
 }
 .search-location> input{
     height: 45px;
-    width: 100%;
     border-radius: 3px;
     padding-left: 50px;
-    border: 2px solid black;
+    border: 1px solid black;
     font-size: 16px;
     color: rgb(36, 36, 36);
+    width: 300px;
+    outline: none;
 }
 .search-location> input::placeholder{
     color: #1d1d1d;
 }
 
+.down-arrow{
+    position: absolute;
+    margin-left: 125px;
+}
+.search-location input:focus> .down-arrow{
+    transform: rotateZ(180deg);
+}
 .search-bar{
     display: flex;
     align-items: center;
     width: 50%;
+    
 }
 
 .search-bar> input{
@@ -45,9 +54,10 @@
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     padding-left: 5px;
-    border: 2px solid black;
+    border: 1px solid black;
     font-size: 16px;
     color: rgb(71, 71, 71);
+    outline: none
 }
 .search-bar > .search-bar-icon{
     fill: white;
@@ -75,11 +85,14 @@ input:focus{
 .loginBtn{
     color: #002f34;
     border: none;
+    border-bottom: 3px solid #002f34;
     font-size: 18px;
     font-weight: bold;
     background: none;
-    text-decoration: underline;
     cursor: pointer;
+}
+.loginBtn:hover{
+    border-bottom: none;
 }
 .sell-btn-container{
     display: flex;
@@ -107,20 +120,23 @@ input:focus{
 }
 
 /* Menu */
-.menu ul{
+/* .menu{
+    position: absolute;
+    margin-top: 70px;
+} */
+.menu ul {
     display: flex;
     background: white;
     padding: 10px;
 }
-
 .nav-link {
-    font-family: sans-serif;
     margin-left: 13px;
     list-style-type: none;
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
     text-decoration: none;
     color: black;
+    white-space: nowrap;
 }
 .nav-link:hover{
     color: #70b8c0;;
@@ -171,6 +187,9 @@ input:focus{
     top: 115px;
 }
 
+.modalbody{
+    text-align: center;
+}
 
 
 /* @media screen and (max-width: 992px){

@@ -15,20 +15,18 @@ import LandsAndPlots from '../screens/LandsAndPlots'
 class AppRouter extends React.Component {
     render() {
         return (
-            <div>
-                <Router>
-                    <Route exact path='/' component={Home} />
-                    <Route exact path='/about' component={About} />
-                    <Route exact path="/mobilephones" component={MobilePhones} />
-                    <Route exact path="/motorcycles" component={Motorcycles} />
-                    <Route exact path="/cars" component={Cars} />
-                    <Route exact path="/houses" component={Houses} />
-                    <Route exact path="/tvvideoaudio" component={TvVideoAudio} />
-                    <Route exact path="/tablets" component={Tablets} />
-                    <Route exact path="/landsandplots" component={LandsAndPlots} />
-                    <Redirect to="/" />
-                </Router>
-            </div>
+            <Router>
+                <Route exact path='/' component={Home} />
+                <Route exact path='/about' component={About} />
+                <Route exact path="/mobilephones" component={MobilePhones} />
+                <Route exact path="/motorcycles" component={Motorcycles} />
+                <Route exact path="/cars" component={Cars} />
+                <Route exact path="/houses" component={Houses} />
+                <Route exact path="/tvvideoaudio" component={TvVideoAudio} />
+                <Route exact path="/tablets" component={Tablets} />
+                <Route exact path="/landsandplots" component={LandsAndPlots} />
+                <Redirect to="/" />
+            </Router>
         )
     }
 }

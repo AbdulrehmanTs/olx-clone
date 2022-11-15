@@ -10,13 +10,13 @@ const INITIAL_STATE = {
         email: "hamdan@gmail.com"
     },
 }
-
-export default (state = INITIAL_STATE, action) => {
+const AuthReducer =  (state = INITIAL_STATE, action) => {
     console.log("AuthReducers==>", action, state)
     switch (action.type) {
         case "Set_Data":
             return (
-                {   ...state,
+                {   
+                    ...state,
                     id3: { user: 'khan', email: 'khan@gmail.com' }
                 }
             )
@@ -26,3 +26,6 @@ export default (state = INITIAL_STATE, action) => {
 
     }
 }
+    
+
+export default AuthReducer;
